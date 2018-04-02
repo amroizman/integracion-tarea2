@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   def create
     article = Article.new(article_params)
     if article.save
-      render json: {status: 'SUCCESS', message: 'Article saved', data:article}, status: :ok
+      render json: {status: 'SUCCESS', message: 'Article saved', data:article}, status: :created
     else
       render json: {status: 'ERROR', message: 'Article not saved', data:article.errors}, status: :unprocessable_entity
     end
