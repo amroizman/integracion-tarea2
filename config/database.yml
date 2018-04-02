@@ -1,7 +1,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: integraciontarea2_db_1
+  host: integraciontarea2_db_1 
   username: postgres
   password:
   pool: 5
