@@ -6,8 +6,9 @@ class CommentsController < ApplicationController
   end
 
   def show
-    comment = Article.find(params[:article_id]).comments.find(params[:id])
-    render json: comment, status: :ok
+    comment = Article.find_by(id: params[:article_id]).comments.find_by(id: params[:id])
+    render json: { "error": "Not found" }, status: :not_found unless comment
+    render json: comment, status: :ok if comment
   end
 
   def create

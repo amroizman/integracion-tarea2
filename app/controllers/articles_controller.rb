@@ -7,8 +7,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    article = Article.find(params[:id])
-    render json: article, status: :ok
+    article = Article.find_by(id: params[:id])
+    render json: { "error": "Not found" }, status: :not_found unless article
+    render json: article, status: :ok if article
   end
 
   def create
